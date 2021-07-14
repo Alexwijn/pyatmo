@@ -31,6 +31,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -
 
+## [5.2.2] - 2021-07-14
+
+### Fixed
+
+- Ignore unimportant missing attributes in server response for public weather data
+
 ## [5.2.1] - 2021-07-10
 
 ### Added
