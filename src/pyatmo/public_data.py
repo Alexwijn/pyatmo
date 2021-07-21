@@ -1,7 +1,9 @@
 """Support for Netatmo public weather data."""
 from __future__ import annotations
 
+import time
 import dataclasses
+
 from abc import ABC
 from collections import defaultdict
 from typing import Any
@@ -48,8 +50,8 @@ class AbstractPublicData(ABC):
     def process(self, resp: dict) -> None:
         """Process data from API."""
         self.status = resp.get("status", "")
-        self.time_exec = to_time_string(resp.get("time_exec", ""))
-        self.time_server = to_time_string(resp.get("time_server", ""))
+        self.time_exec = to_time_string(resp.get("time_exec", time.time()))
+        self.time_server = to_time_string(resp.get("time_server", time.time()))
 
     def stations_in_area(self) -> int:
         return len(self.raw_data)
